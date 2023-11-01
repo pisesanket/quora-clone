@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#search-page-result{
+    padding-top:43px ;
+
+}
+#search-page-content{
+    width: 700px;
+    /* border: 1px solid black; */
+    padding-left: 8px;
+}
+#search-page-header{
+    font-size: calc(27px * var(--dynamic-font-scale, 1))!important;
+    background-color: #fff;
+    line-height: 1.4;
+    padding: 8px;
+    border-bottom: 1px solid #dee0e1;
+}
+
+
+@media only screen and (max-width:1024px){
+    #search-page-result{
+        padding-top: 88px;
+    }
+        
+    #search-page-content{
+        width: 100vw;
+        /* border: 1px solid black; */
+        padding-left: 0px;
+    }
+}

@@ -1,0 +1,67 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#page-container{
+    margin-top: 45px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+    /* position: fixed; */
+    /* position: relative; */
+}
+#left-sideBar{
+    width: 14%;
+    display: block;
+    /* height: 300px; */
+    /* position: fixed; */
+    
+    overflow-y: auto;
+    /* border: 1px solid black; */
+}
+#middleBar-content{
+
+    width: 55%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+    display: block;
+    overflow-y: auto;
+    /* overflow: hidden; */
+    -ms-overflow-style:none;  /* IE and Edge */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+}
+#middleBar-content::-webkit-scrollbar {
+    display: none;
+  }
+#right-sideBar{
+    width:31%;
+    /* height: 400px; */
+    overflow-y: auto;
+}
+
+
+#postInfo{
+    /* padding: 5px; */
+}
+
+@media only screen and (max-width:1024px){
+    #middleBar-content{
+        width: 100%;
+        padding-top: 44px;
+    }
+    #left-sideBar{
+        width: 0;
+    }
+    #right-sideBar{
+        width: 0;
+    }
+}
+    

@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#profile-page{
+    width: 100%;
+    padding-top: 88px;
+    background-color: #fff;
+    min-height: 100vh;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: calc(15px * var(--dynamic-font-scale,1));
+    line-height: 1.4;
+}
+#profile-page-div{
+    display: flex;
+    flex-direction: row;
+    
+}
+#profile-page-left-bar{
+    width: 572px;
+    display: flex;
+    flex-direction: column;
+}
+#profile-page-right-bar{
+    width: 356px;
+    margin-left: 80px;
+}
+#profile-header{
+    /* border: 1px solid black; */
+    display: flex;
+}
+#profile-header-image{
+    padding: 4px;
+}
+#profile-header-image>img{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 1px solid #dee0e1;
+}
+#profile-header-name-follow{
+    display: flex;
+    padding: 8px;
+    flex-direction: column;
+    margin-left: 16px;
+
+
+}
+#profile-header-name{
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: calc(27px * var(--dynamic-font-scale,1));
+    line-height: 1.4;
+    font-weight: bold;
+}
+#profile-header-follow{
+    margin-top: 16px;
+    color: #dee0e1;
+    
+    border-radius:50px;
+    cursor: pointer;
+    background-color:  #2e69ff;
+    color: #fff;
+    text-align: center;
+    justify-self: center;
+}
+#profile-header-follow:hover{
+    background-color: #799dfa;
+}
+#profile-details{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #dee0e1;
+}
+#profile-details-title{
+    font-size: calc(18px * var(--dynamic-font-scale,1));
+    font-weight: 500;
+    border-bottom: 1px solid #dee0e1;
+    padding-bottom: 8px;
+}
+#profile-details-data{
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.profile-detail-content{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    text-align: center;
+
+}
+.profile-detail-content>img{
+    width: 24px;
+    padding: 4px;
+    border: 1px solid #dee0e1;
+    background-color: #f1f2f2;
+    border-radius: 50px;
+    margin-right: 8px;
+}
+#profile-content{
+    display: flex;
+    flex-direction: column;
+
+}
+#profile-content-title-row{
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    border-bottom: 1px solid #dee0e1;
+    padding-bottom: 0;
+
+}
+.profile-content-row-item{
+    color:#b92b27;
+    border-bottom: 3px solid #b92b27;
+    margin-left: 6px;
+    padding-bottom: 8px;
+}
+@media only screen and (max-width:1024px) {
+   
+    #profile-page-div{
+        display: flex;
+        flex-direction: column;
+    }
+    #profile-header{
+        width: 100vw;
+        padding: 16px;
+        border-bottom: 3px solid #dee0e1;
+    }
+    #profile-header-image>img{
+        width: 100px;
+        height: 100px;
+        margin-left: 8px;
+    }
+    #profile-details{
+        margin-top: 16px;
+        
+    }
+    #profile-details-title{
+        padding-left: 16px;
+    }
+    #profile-details-data{
+        padding-left: 16px;
+    }
+}

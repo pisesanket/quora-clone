@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#channel-page{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(15px * var(--dynamic-font-scale,1));
+    line-height: 1.4;
+}
+#channel-page-top{
+    padding-top: 200px;
+    background-image: url(//qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.home_page_bg_desktop.png-26-4770753d59b970e1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* -webkit-backdrop-filter: blur(10px); */
+    /* position: absolute; */
+    
+}
+/* #channel-page-top::before{
+    background-image: inherit;
+    filter: blur(10px);
+} */
+#channel-page-header{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding-bottom: 30px;
+    
+}
+#channel-page-image{
+    margin-left: 16px;
+}
+#channel-page-image>img{
+    width: 120px;
+    height: 120px;
+    border: 1px solid #dee0e1;
+    border-radius: 33.33%;
+}
+#channel-page-title{
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: calc(27px * var(--dynamic-font-scale,1));
+    font-weight: bold;
+}
+#channel-page-desc-more{
+    display: flex;
+    margin-left: 8px;
+    margin-right: 100px;
+    /* padding-right: 50px; */
+    justify-content: space-between;
+    
+}
+#channel-page-desc{
+    font-weight: 600;
+    
+}
+#channel-page-more{
+    text-align: center;
+    /* padding-top: 4px; */
+    /* padding-bottom: 0px; */
+}
+#channel-page-more>img{
+    border-radius: 50px;
+    padding: 8px;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+}
+#channel-page-content{
+    width: 658px;
+}
+
+#channel-content-title-row{
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    border-bottom: 1px solid #dee0e1;
+    padding-bottom: 0;
+
+}
+.channel-content-row-item{
+    color:#b92b27;
+    border-bottom: 3px solid #b92b27;
+    margin-left: 6px;
+    padding-bottom: 8px;
+}
+@media only screen and (max-width:1024px) {
+    #channel-page-top{
+        width: 100vw;
+    }
+    #channel-page{
+        width: 100vw;
+    }
+    #channel-page-content{
+        width: 100vw;
+    }
+    #channel-page-desc-more{
+        margin-right: 16px;
+    }
+}

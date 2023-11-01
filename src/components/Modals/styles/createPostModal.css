@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#create-post-modal{
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    border-radius: 3px;
+    font-size: calc(15px * var(--dynamic-font-scale,1));
+    line-height: 1.4;
+    direction: ltr;
+    background-color: rgba(36,36,36,0.9);
+    
+}
+#create-post-modal-div{
+    color: #636466;
+    width: 800px;
+    display: flex;
+   
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #dee0e1;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    /* padding: 10px; */
+    border-radius: 8px;
+
+}
+#create-post-modal-header{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #dee0e1;
+    /* position: fixed; */
+    
+}
+#create-post-modal-close{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    height: 60px;
+}
+#create-post-modal-close>img{
+    cursor: pointer;
+}
+.active-tab-div{
+    border-bottom: 3px solid #2e69ff;
+}
+#create-post-modal-tab{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-bottom: 4px; */
+}
+#create-post-modal-add-question{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+#create-post-modal-content{
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+#create-post-modal-create-post{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+#create-post-modal-content-content>div{
+    padding: 4px;
+    &:active, &:focus{ 
+        outline: none; 
+        text-decoration: none;
+        border: 1px solid #dee0e1;
+      }
+}
+#create-post-modal-content-title>div{
+    font-weight: 600;
+    padding: 4px;
+    &:active, &:focus{ 
+        outline: none; 
+        text-decoration: none;
+        border: 1px solid #dee0e1;
+      }
+}
+#create-post-modal-footer{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #dee0e1;
+}
+#create-post-modal-footer-post-btn{
+    width: 80px;
+    margin-right: 16px;
+    border: 1px solid #dee0e1;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 50px;
+    background-color: #2e69ff;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+#create-post-modal-footer-post-btn:hover{
+    background-color: #5584fa;
+}
+#create-post-modal-footer-image-btn{
+    margin-left: 16px;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#create-post-modal-footer-image-btn:hover{
+    background-color: #dee0e1;
+}
+#create-post-modal-content-image>img{
+    width:600px;
+}
+
+@media only screen and (max-width:1024px) {
+    #create-post-modal-div{
+        width: 100vw;
+        height: 100vh;
+    }
+    #create-post-modal-footer{
+        bottom: 0;
+    }
+    #create-post-modal-content{
+        height: 100vh;
+    }
+    #create-post-modal-content-image>img{
+        width: 98vw;
+    }
+}
