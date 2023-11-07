@@ -3,6 +3,7 @@ import images from "../images";
 import SubComment from "./SubComment";
 import CommentMoreModal from "../Modals/CommentMoreModal";
 import CommentUpdateModal from "../Modals/CommentUpdateModal";
+import { Link } from "react-router-dom";
 
 const MainComment = (props) =>{
     const [author,setAuthor] = useState({});
@@ -23,7 +24,7 @@ const MainComment = (props) =>{
         }
         }).then(res=>res.json()).then(res=>{
             setAuthor(res.data);
-            console.log(res.data);
+        
         }).catch(err=>{})
     }
 
@@ -70,19 +71,22 @@ const MainComment = (props) =>{
         }
     }
 
+    function handleAuthorClick(){
+
+    }
 
     return (<>
         <div id="main-comment" >
-            <div id="main-comment-img"><img src={author.profileImage} alt="" /></div>
+            <div id="main-comment-img"><Link to={`/profile/${props.author}`} ><img style={{cursor:'pointer'}} onClick={handleAuthorClick} src={author.profileImage} alt="" /></Link></div>
             <div id="main-comment-right">
-                <div id="main-comment-header"><div id="main-comment-header-name">{author.name}</div><div id="main-comment-header-time"></div>{(props.author==localStorage.getItem('userId'))&&<div className="main-comment-header-more" onClick={handleCommentMoreClick}><img src={images.more} alt="" /></div>}</div>
-                {isUpdateOpen?<CommentUpdateModal content={props.content} setUpdate={setUpdate} />:<div id="main-comment-content">{props.content}</div>}
+                <div id="main-comment-header"><Link to={`/profile/${props.author}`} ><div id="main-comment-header-name" style={{cursor:'pointer'}} onClick={handleAuthorClick}>{author.name}</div></Link><div id="main-comment-header-time"></div>{(props.author==localStorage.getItem('userId'))&&<div className="main-comment-header-more" onClick={handleCommentMoreClick}><img src={images.more} alt="" /></div>}</div>
+                {isUpdateOpen?<CommentUpdateModal id={props.id} content={props.content} isCommentBoxUpdated={props.isCommentBoxUpdated} setCommentBoxUpdated={props.setCommentBoxUpdated} setUpdate={setUpdate} />:<div id="main-comment-content">{props.content}</div>}
                 <div id="main-comment-reply-div">{props.children.map((childrenEntry)=>{
                     return <SubComment id={childrenEntry._id} author={childrenEntry.author} content={childrenEntry.content}/>
                 })}</div>
             </div>
             {isMoreOpen&&(<div id="comment-more-modal-div" ref={commentMoreRef}>
-                <CommentMoreModal author={props.author} setMoreOpen={setMoreOpen} isUpdateOpen={isUpdateOpen} setUpdate={setUpdate}/>
+                <CommentMoreModal id={props.id} author={props.author} isCommentBoxUpdated={props.isCommentBoxUpdated} setCommentBoxUpdated={props.setCommentBoxUpdated} setMoreOpen={setMoreOpen} isUpdateOpen={isUpdateOpen} setUpdate={setUpdate}/>
             </div>)}
         </div>
     </>)

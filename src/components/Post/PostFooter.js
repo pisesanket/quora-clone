@@ -82,12 +82,12 @@ const PostFooter = ({isCommentOn,setCommentOn,upvoteCount,commentCount,id}) =>{
     }
     function handleCommentClick(){
      
-        setCommentOn({...isCommentOn,'commentId':id,'isOn':!isCommentOn.isOn})
+        setCommentOn({'commentId':id,'isOn':!isCommentOn.isOn})
     }
     return (<><div id="postFooter">
         <div id="post-footer-upVote-downVote" ><div id="post-footer-upVote" onClick={upVoteClick}><span id='post-footer-upVote-imgSpan'><img src={upVoteIcon} alt="" /></span><span id="post-footer-upVote-text">{`Upvote ${likeCount?likeCount:''}`}</span></div><div id="post-footer-downVote" onClick={downVoteClick}><img src={downVoteIcon} alt="" /></div></div>
         <div id="post-footer-comment" onClick={handleCommentClick}><div><span><img src={images.comment} alt="" /></span><span>{commentCount}</span></div></div>
-        <div id="post-footer-share"><div><span><img src={images.share} alt="" /></span><span>{3}</span></div></div>
+        {/* <div id="post-footer-share"><div><span><img src={''} alt="" /></span><span></span></div></div> */}
     </div>
     <div>
     </div>

@@ -52,9 +52,23 @@ const ProfileModal = (props) =>{
         setIsLogged(false);
         localStorage.setItem('isLoggedIn',false)
         localStorage.removeItem('userId');
+        localStorage.removeItem('token')
+        props.setProfileModal(!props.isProfileModal)
+
         // localStorage.removeItem('isLoggedIn')
     }
-
+    function handleProfileClick(){
+        setTimeout(() => {
+            
+            props.setProfileModal(!props.isProfileModal)
+        }, 1000);
+    }
+    function handleUpdatePass(){
+        props.setUpdatePassword(true)
+        setTimeout(()=>{
+            props.setProfileModal(!props.isProfileModal)
+        },1000)
+    }
     return (<>
 
         
@@ -62,16 +76,16 @@ const ProfileModal = (props) =>{
         <ProfileModalSmallScreenClose isProfileModal={props.isProfileModal} setProfileModal={props.setProfileModal}/>
             <div id="profile-modal-header">
                 <Link to={`profile/${localStorage.getItem('userId')}`}>
-                    <div id="profile-modal-link-section">
+                    <div onClick={handleProfileClick} id="profile-modal-link-section">
                         <img width={'30px'} height={'30px'} src={userDetail.profileImage} alt="" />
                         <div id="profile-modal-text">{userDetail.name}</div>
                     </div>
                 </Link>
             </div>
             <div id="profile-modal-lower">
-                <ProfileModalLowerDivComponent text='Bookmarks' />
-                <ProfileModalLowerDivComponent text='Dark Mode' />
-                <ProfileModalLowerDivComponent text='Change Password' />
+                {/* <ProfileModalLowerDivComponent text='Bookmarks' />
+                <ProfileModalLowerDivComponent text='Dark Mode' /> */}
+                <ProfileModalLowerDivComponent onClick={handleUpdatePass} text='Change Password' />
                 <ProfileModalLowerDivComponent onClick={handleLogoutClick} text='Logout' />
             </div>
         </div>

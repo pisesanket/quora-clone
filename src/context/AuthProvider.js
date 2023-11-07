@@ -8,14 +8,11 @@ const AuthProvider = ({children})=>{
     useEffect(()=>{
         
         const storedValue = localStorage.getItem('isLoggedIn');
-        if (storedValue !== null) {
-
+        if (storedValue) {
             setIsLogged(JSON.parse(storedValue));
             localStorage.setItem('isLoggedIn',storedValue);
-            
         }else{
             localStorage.setItem('isLoggedIn',false)
-        
         }
     },[])
 

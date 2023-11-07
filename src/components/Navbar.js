@@ -22,6 +22,9 @@ import SmallSearchBox from './NavBarComponents/SmallSearchBox';
 import SmallTitle from './NavBarComponents/SmallTitle';
 import SearchModal from './Modals/SearchModal';
 import SearchPageResult from '../Pages/SearchPageResult';
+import UnderConstrucionPage from '../Pages/UnderConstructionPage';
+import UnderConstructionPage from '../Pages/UnderConstructionPage';
+import UpdatePasswordModal from './Modals/UpdatePasswordModal';
 
 
 
@@ -34,7 +37,7 @@ const Navbar = (props) =>{
     const [isSmallSearch,setSmallSearch] = useState(false);
     const [isInputActive, setIsInputActive] = useState(false);
     const [searchTerm,setSearchTerm] = useState('');
-
+    const [isUpdatePassword,setUpdatePassword] = useState(false);
 
     
     if(isLoggedIn){
@@ -55,21 +58,22 @@ const Navbar = (props) =>{
                             
                             <div id='nav-small-icons'><MainNavigation /><NavBarLoginSmall isProfileModal={isProfileModal} setProfileModal={setProfileModal}/></div>
                         </div>)}
-                {isProfileModal&&<ProfileModal isProfileModal={isProfileModal} setProfileModal={setProfileModal} />}
+                {isProfileModal&&<ProfileModal isProfileModal={isProfileModal} setUpdatePassword={setUpdatePassword} setProfileModal={setProfileModal} />}
                 {isCreatePostModal&&<CreatePostModal setCreatePostModal={setCreatePostModal}/>}
                 {isCreateSpaceModal&&<CreateSpaceModal setCreateSpaceModal={setCreateSpaceModal} />}
                 {isInputActive&&<SearchModal setSearchTerm={setSearchTerm} searchTerm={searchTerm}  setIsInputActive={setIsInputActive}/>}
-    
+                {isUpdatePassword&&<UpdatePasswordModal setUpdatePassword={setUpdatePassword}/>}
                 </div>
             </nav>
             <Routes>
+                
                 <Route path='/' element={<PostPage setCreateSpaceModal={setCreateSpaceModal} />}></Route>
                 <Route path='/spaces'  element={<SpacePage setCreateSpaceModal={setCreateSpaceModal}/>}></Route>
                 <Route path='/profile/:userId' element={<ProfilePage />}></Route>
                 <Route path='/channel/:channelId' element={<ChannelPage />}></Route>
-                <Route path='/notifications' element={''}></Route>
-                <Route path='/following' element={''}></Route>
-                <Route path='/answer' element={''}></Route>
+                <Route path='/notifications' element={<UnderConstructionPage/>}></Route>
+                <Route path='/following' element={<UnderConstructionPage />}></Route>
+                <Route path='/answer' element={<UnderConstructionPage />}></Route>
                 <Route path="/search" element={<SearchPageResult />} />
 
             </Routes>

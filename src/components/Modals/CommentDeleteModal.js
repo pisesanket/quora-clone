@@ -1,9 +1,9 @@
-import React, { useRef,useEffect } from "react";
+import React, { useRef,useEffect, useState } from "react";
 
 
 
 const CommentDeleteModal = (props) =>{
-
+    const [finalDelete,setFinalDelete] = useState(false);
     const commentDeleteModalRef = useRef();
 
     useEffect(() => {
@@ -26,8 +26,34 @@ const CommentDeleteModal = (props) =>{
         props.setDelete(false);
       }
       function okClickHandle(){
-        
+        setFinalDelete(true);
       }
+      async function callDeleteApi(){
+        fetch(`https://academics.newtonschool.co/api/v1/quora/comment/${props.id}`, {
+          method:'DELETE',
+          headers:{
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+              'projectID': '18t89wnvvqxy',    
+          }
+          
+          }).then(()=>{
+            
+              props.setDelete(false)
+              props.setMoreOpen(false);
+              props.setCommentBoxUpdated(!props.isCommentBoxUpdated);
+              // props.setUpdate(false);
+
+          }).catch(err=>{
+              console.log(err);
+          })
+      }
+
+
+      useEffect(()=>{
+        if(finalDelete){
+          callDeleteApi();
+        }
+      },[finalDelete])
 
     return (<>
         <div id="comment-delete-modal" ref={commentDeleteModalRef}>

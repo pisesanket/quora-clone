@@ -12,7 +12,7 @@ const AddComment =(props) =>{
         setFinalMainComment(comment);
     }
     async function finalMainCommentAddApi(){
-        console.log(comment)
+        
         await fetch(`https://academics.newtonschool.co/api/v1/quora/comment/${props.id}`, {
             method:'POST',
             headers: {
@@ -23,15 +23,19 @@ const AddComment =(props) =>{
             body: JSON.stringify({
                 'content': `${finalMainComment}`,
             })
-        }).then(res => res.json()).then(res => { console.log(res) }).catch(err => { console.error(err) });
+        }).then(res => res.json()).then(res => {
+            props.setCommentBoxUpdated(!props.isCommentBoxUpdated);
+         }).catch(err => { console.error(err) });
     }
     useEffect(()=>{
         if(finalMainComment!==''){
-            console.log('hello');
             finalMainCommentAddApi();
-            props.setCommentBoxUpdated(!props.isCommentBoxUpdated);
+            // props.setCommentOn({...props.isCommentOn,'isOn':false});
+
+            
             setFinalMainComment('');
             setComment('')
+            // props.setCommentOn({...props.isCommentOn,'isOn':true});
         }
     },[finalMainComment])
 

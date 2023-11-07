@@ -46,7 +46,7 @@ const Posts = (props) =>{
         return <h1>...Loading</h1>
     }
     if(!data){
-        console.log(data)
+        
         return <h2>NO result found</h2>
     }
    
@@ -64,7 +64,7 @@ const Posts = (props) =>{
                 {isCommentOn.isOn&&(isCommentOn.commentId==postEntry._id)&&(<div>
                     <AddComment id={postEntry._id} isCommentOn={isCommentOn} isCommentBoxUpdated={isCommentBoxUpdated} setCommentBoxUpdated={setCommentBoxUpdated} setCommentOn={setCommentOn}/>
                     <div id="post-comments">
-                        <ShowComment isCommentOn={isCommentOn} id={postEntry._id} isCommentBoxUpdated={isCommentBoxUpdated} />
+                        <ShowComment isCommentOn={isCommentOn} id={postEntry._id} isCommentBoxUpdated={isCommentBoxUpdated} setCommentBoxUpdated={setCommentBoxUpdated} />
                     </div>
                 </div>)}
                 </>)

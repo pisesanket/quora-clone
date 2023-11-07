@@ -27,17 +27,27 @@ const CreateSpaceModal = (props) =>{
             method:'POST',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            'projectID': '18t89wnvvqxy'
+            'projectID': '18t89wnvvqxy' ,    
+            'Content-Type': 'application/json'
+
         },
-        body: {
+        body: JSON.stringify({
             "name": name,
             "description": desc ,
             "images": image,
             "title":''
-        }
-        }).then(res=>res.json).then(res=>{
+        })
+        }).then(res=>res.json()).then(res=>{
+        
             if(res.status==='success'){
                 setMessage('Space Created Successfully');
+                alert('Space Created Successfully')
+
+                props.setCreateSpaceModal(false)
+            }else{
+                alert('something went wrong please try later')
+                props.setCreateSpaceModal(false)
+
             }
         }).catch(err=>{
             console.log(err);
@@ -46,8 +56,8 @@ const CreateSpaceModal = (props) =>{
 
     function handleCreate(e){
         if(name!=''&&desc!=''){
-            // callCreateSpaceApi();
-            setMessage('Space Created Successfully');
+            callCreateSpaceApi();
+            // setMessage('Space Created Successfully');
             setName('');
             setDesc('');
             setImage('')

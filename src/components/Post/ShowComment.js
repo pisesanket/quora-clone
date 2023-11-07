@@ -17,18 +17,18 @@ const ShowComment = (props) =>{
             // console.log(res.data);
         }).catch(err=>{})
     }
-    useEffect(()=>{
-        fetcAllComment();
-        // console.log(1);
+    // useEffect(()=>{
+    //     fetcAllComment();
+    //     // console.log(1);
         
-    },[])
-    useEffect(()=>{
-        // console.log(2);
+    // },[])
+    // useEffect(()=>{
+    //     // console.log(2);
 
-        fetcAllComment()
-    },[props.isCommentOn])
+    //     fetcAllComment()
+    // },[props.isCommentOn])
     useEffect(()=>{
-        // console.log(3);
+    
 
         fetcAllComment();
     },[props.isCommentBoxUpdated])
@@ -38,7 +38,7 @@ const ShowComment = (props) =>{
     return (<>
         <div id="show-comment">
             {commentData.map((commentEntry)=>{
-                return (<MainComment id={commentEntry._id} author={commentEntry.author} children={commentEntry.children} content={commentEntry.content} createdAt={commentEntry.createdAt}/>)
+                return (<MainComment id={commentEntry._id} author={commentEntry.author} children={commentEntry.children} content={commentEntry.content} createdAt={commentEntry.createdAt} isCommentBoxUpdated={props.isCommentBoxUpdated} setCommentBoxUpdated={props.setCommentBoxUpdated}/>)
             })
             }
             

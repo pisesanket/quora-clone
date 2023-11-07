@@ -26,7 +26,7 @@ const CommentMoreModal =(props) =>{
             <div onClick={handleDeleteClick} id="comment-more-modal-delete">Delete</div>
         </div>
         {(isDelete)&&<div id="comment-more-modal-update-delete">
-            {isDelete&&<CommentDeleteModal isDelete={isDelete} setDelete={setDelete}/>}
+            {isDelete&&<CommentDeleteModal id={props.id} setMoreOpen={props.setMoreOpen} isCommentBoxUpdated={props.isCommentBoxUpdated} setCommentBoxUpdated={props.setCommentBoxUpdated} isDelete={isDelete} setDelete={setDelete}/>}
         </div>
         }
         

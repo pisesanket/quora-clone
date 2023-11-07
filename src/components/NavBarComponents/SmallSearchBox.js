@@ -28,7 +28,10 @@ const SmallSearchBox = (props) =>{
       }
   
       function handleBlur() {
-        props.setIsInputActive(false);
+        setTimeout(() => {
+            props.setIsInputActive(false);
+            
+        }, 2000);
       }
   
       const inputElement = inputSmallRef.current;

@@ -29,3 +29,16 @@ body{
     width: 100%;
   }
 }
+#under-const-page{
+  width: 100vw;
+}
+#under-const-page>div{
+  margin-top: -40px;
+  width: 100%;
+  background-image: url('/src/images/uConst.jpg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-clip:border-box  ;
+  height: 100vh;
+}
